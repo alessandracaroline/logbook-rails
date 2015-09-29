@@ -1,5 +1,7 @@
 <h1>All trips</h1>
 
+<%= link_to 'Add new trip', new_trip_path %>
+
 <table>
   <tr>
     <th>Trip</th>
@@ -9,7 +11,7 @@
 
   <% @trips.each do |trip| %>
     <tr>
-      <td><%= trip.title %></td>
+      <td><%= link_to trip.title, trip_path(trip) %></td>
       <td>
         <%= trip.origin %>
         &ndash;
