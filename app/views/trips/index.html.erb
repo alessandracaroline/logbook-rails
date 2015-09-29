@@ -1,0 +1,26 @@
+<h1>All trips</h1>
+
+<table>
+  <tr>
+    <th>Trip</th>
+    <th>Region</th>
+    <th>Dates</th>
+  </tr>
+
+  <% @trips.each do |trip| %>
+    <tr>
+      <td><%= trip.title %></td>
+      <td>
+        <%= trip.origin %>
+        &ndash;
+        <%= trip.destination %>
+      </td>
+      <td>
+        <%= trip.start_date.strftime("%F") %>
+        &ndash;
+        <%= trip.end_date.strftime("%F") %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
