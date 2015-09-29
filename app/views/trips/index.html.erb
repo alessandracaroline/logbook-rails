@@ -7,6 +7,7 @@
     <th>Trip</th>
     <th>Region</th>
     <th>Dates</th>
+    <th colspan="3"></th>
   </tr>
 
   <% @trips.each do |trip| %>
@@ -22,6 +23,11 @@
         &ndash;
         <%= trip.end_date.strftime("%F") %>
       </td>
+      <td><%= link_to 'Show', trip_path(trip) %></td>
+      <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
+      <td><%= link_to 'Delete', trip_path(trip),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
