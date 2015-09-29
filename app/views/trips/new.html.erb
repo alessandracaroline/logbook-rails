@@ -1,6 +1,20 @@
 <h1>Setup a new trip</h1>
 
 <%= form_for :trip, url: trips_path do |f| %>
+
+  <% if @trip.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:
+      </h2>
+      <ul>
+        <% @trip.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>

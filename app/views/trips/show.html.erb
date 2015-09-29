@@ -1,0 +1,29 @@
+<h1><%= @trip.title %></h1>
+<p>
+  <h3>
+    from <%= @trip.origin %> to <%= @trip.destination %>
+  </h3>
+</p>
+
+<p class="dates">
+  <h3>
+    <%= @trip.start_date.strftime("%F") %>
+    &ndash;
+    <%= @trip.end_date.strftime("%F") %>
+  </h3>
+</p>
+
+<p>
+  <strong>Skipper:</strong>
+  <%= @trip.skipper_name %>
+</p>
+
+<p>
+  <strong>Boat:</strong>
+  <%= @trip.boat_name %>
+</p>
+
+<p>
+  <strong>Boat type:</strong>
+  <%= @trip.boat_type %>
+</p>
