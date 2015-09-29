@@ -1,0 +1,46 @@
+<%= form_for :trip, url: trips_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :skipper_name %><br>
+    <%= f.text_field :skipper_name %>
+  </p>
+
+  <p>
+    <%= f.label :boat_name %><br>
+    <%= f.text_field :boat_name %>
+  </p>
+
+  <p>
+    <%= f.label :boat_type %><br>
+    <%= f.text_field :boat_type %>
+  </p>
+
+  <p>
+    <%= f.label :start_date %><br>
+    <%= f.date_select :start_date %>
+  </p>
+
+  <p>
+    <%= f.label :end_date %><br>
+    <%= f.date_select :end_date %>
+  </p>
+
+  <p>
+    <%= f.label :origin %><br>
+    <%= f.text_field :origin %>
+  </p>
+
+  <p>
+    <%= f.label :destination %><br>
+    <%= f.text_field :destination %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
