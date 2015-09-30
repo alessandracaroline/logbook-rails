@@ -1,6 +1,8 @@
 class LogsController < ApplicationController
 
-  def index
+  def show
+    @trip = Trip.find(params[:trip_id])
+    @log = Log.find(params[:id])
   end
 
   def new
@@ -8,17 +10,24 @@ class LogsController < ApplicationController
     @log = Log.new
   end
 
+  def edit
+  end
+
   def create
     @trip = Trip.find(params[:trip_id])
     @log = @trip.logs.new(log_params)
-
-    p @log
 
     if @log.save
       redirect_to trip_path(@trip)
     else
       render 'new'
     end
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private

@@ -1,5 +1,18 @@
 <%= form_for([@trip, @trip.logs.build]) do |f| %>
 
+  <% if @log.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@log.errors.count, "error") %> prohibited this trip from being saved:
+      </h2>
+      <ul>
+        <% @log.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= f.select :latitude_hemisphere, options_for_select(["N", "S"],"N") %>
     <%= f.number_field :latitude_degrees, :in => 0..90 %>
