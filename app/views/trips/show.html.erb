@@ -30,3 +30,6 @@
 
 <%= link_to 'Edit', edit_trip_path(@trip) %>
 <%= link_to 'Delete', trip_path(@trip), method: :delete, data: { confirm: 'Do you really want to delete this trip?' } %>
+
+<h2>Logs</h2>
+<%= link_to 'Add a log', new_trip_log_path(@trip) %>

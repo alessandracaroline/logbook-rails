@@ -1,0 +1,36 @@
+<%= form_for([@trip, @trip.logs.build]) do |f| %>
+
+  <p>
+    <%= f.select :latitude_hemisphere, options_for_select(["N", "S"],"N") %>
+    <%= f.number_field :latitude_degrees %>
+    &deg;
+    <%= f.number_field :latitude_minutes %>
+    <%= f.label "'" %>
+    <%= f.number_field :latitude_seconds %>
+    <%= f.label "''" %>
+  </p>
+
+  <p>
+    <%= select_tag(:longitude_hemisphere, options_for_select(["E", "W"],"E")) %>
+    <%= f.number_field :longitude_degrees %>
+    &deg;
+    <%= f.number_field :longitude_minutes %>
+    <%= f.label "'" %>
+    <%= f.number_field :longitude_seconds %>
+    <%= f.label "''" %>
+  </p>
+
+  <p>
+    <%= f.label :nautical_miles %><br>
+    <%= f.number_field :nautical_miles %>
+  </p>
+
+  <p>
+    <%= f.label :incidents %><br>
+    <%= f.text_area :incidents %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>
