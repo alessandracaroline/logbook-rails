@@ -5,4 +5,8 @@ class Log < ActiveRecord::Base
   validates_numericality_of :latitude_degrees, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 90
   validates_numericality_of :longitude_degrees, :greater_than_or_equal_to => 0, :less_than_or_equal_to => 180
   validates :latitude_degrees, :longitude_degrees, :latitude_minutes, :longitude_minutes, numericality: { only_integer: true }
+
+  def coordinates_display
+    "#{self.latitude_hemisphere} #{self.latitude_degrees}° #{self.latitude_minutes}' #{self.latitude_seconds}''   #{self.longitude_hemisphere} #{self.longitude_degrees}° #{self.longitude_minutes}' #{self.longitude_seconds}''"
+  end
 end
