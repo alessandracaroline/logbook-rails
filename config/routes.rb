@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     resources :logs
   end
 
+  devise_scope :user do
+    get "login", to: "devise/sessions#new"
+  end
+
   root 'trips#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
