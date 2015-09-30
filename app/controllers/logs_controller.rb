@@ -1,8 +1,15 @@
 class LogsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def show
     @trip = Trip.find(params[:trip_id])
     @log = Log.find(params[:id])
+    if @trip.user_id == current_user.id
+      render 'show'
+    else
+      redirect_to trips_path
+    end
   end
 
   def new
@@ -11,6 +18,13 @@ class LogsController < ApplicationController
   end
 
   def edit
+    @trip = Trip.find(params[:trip_id])
+    @log = Log.find(params[:id])
+    if @trip.user_id == current_user.id
+      render 'edit'
+    else
+      redirect_to trips_path
+    end
   end
 
   def create
@@ -25,9 +39,21 @@ class LogsController < ApplicationController
   end
 
   def update
+    @log = Log.find(params[:id])
+
+    if @log.update(log_params)
+      redirect_to @log
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @log = Log.find(params[:id])
+    @trip = @log.trip
+    @log.destroy
+
+    redirect_to trip_path(@trip)
   end
 
   private

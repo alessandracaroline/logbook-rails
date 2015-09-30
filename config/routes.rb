@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   resources :trips do
     resources :logs
   end
 
+  devise_for :users
   devise_scope :user do
     get "login", to: "devise/sessions#new"
+    get "signup", to: "devise/sessions#create"
   end
+  resources :users
 
   root 'trips#index'
   # The priority is based upon order of creation: first created -> highest priority.

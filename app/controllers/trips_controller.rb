@@ -1,12 +1,18 @@
 class TripsController < ApplicationController
 
   before_action :authenticate_user!
+
   def index
-    @trips = Trip.all
+    @trips = current_user.trips.all
   end
 
   def show
     @trip = Trip.find(params[:id])
+    if @trip.user_id == current_user.id
+      render 'show'
+    else
+      redirect_to trips_path
+    end
   end
 
   def new
@@ -15,10 +21,16 @@ class TripsController < ApplicationController
 
   def edit
     @trip = Trip.find(params[:id])
+    if @trip.user_id == current_user.id
+      render 'edit'
+    else
+      redirect_to trips_path
+    end
   end
 
   def create
-    @trip = Trip.new(trip_params)
+    @user = User.find(current_user.id)
+    @trip = @user.trips.new(trip_params)
 
     if @trip.save
       redirect_to @trip
