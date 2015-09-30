@@ -2,21 +2,21 @@
 
   <p>
     <%= f.select :latitude_hemisphere, options_for_select(["N", "S"],"N") %>
-    <%= f.number_field :latitude_degrees %>
+    <%= f.number_field :latitude_degrees, :in => 0..90 %>
     &deg;
-    <%= f.number_field :latitude_minutes %>
+    <%= f.number_field :latitude_minutes, :in => 0..60 %>
     <%= f.label "'" %>
-    <%= f.number_field :latitude_seconds %>
+    <%= f.number_field :latitude_seconds, :in => 0..60, :step => 'any' %>
     <%= f.label "''" %>
   </p>
 
   <p>
     <%= select_tag(:longitude_hemisphere, options_for_select(["E", "W"],"E")) %>
-    <%= f.number_field :longitude_degrees %>
+    <%= f.number_field :longitude_degrees, :in => 0..180 %>
     &deg;
-    <%= f.number_field :longitude_minutes %>
+    <%= f.number_field :longitude_minutes, :in => 0..60%>
     <%= f.label "'" %>
-    <%= f.number_field :longitude_seconds %>
+    <%= f.number_field :longitude_seconds, :in => 0..60, :step => 'any' %>
     <%= f.label "''" %>
   </p>
 
