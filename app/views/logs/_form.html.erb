@@ -11,7 +11,7 @@
   </p>
 
   <p>
-    <%= select_tag(:longitude_hemisphere, options_for_select(["E", "W"],"E")) %>
+    <%= f.select :longitude_hemisphere, options_for_select(["E", "W"],"E") %>
     <%= f.number_field :longitude_degrees, :in => 0..180 %>
     &deg;
     <%= f.number_field :longitude_minutes, :in => 0..60%>
