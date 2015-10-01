@@ -1,6 +1,20 @@
 <h1>
   <%= @log.coordinates_display%>
 </h1>
+<p>
+  <strong>Nautical miles:</strong>
+  <%= @log.nautical_miles %>
+</p>
+
+<p>
+  <strong>Incidents:</strong>
+  <%= @log.incidents %>
+</p>
+
+  <%= hidden_field_tag "log_latitude", @log.latitude, { :id => "log_latitude" } %>
+  <%= hidden_field_tag "log_longitude", @log.longitude, { :id => "log_longitude" } %>
+<div id='map'>
+</div>
 
 <%= link_to 'Edit', edit_trip_log_path(@trip, @log) %>
 <%= link_to 'Delete', trip_log_path(@trip, @log), method: :delete, data: { confirm: 'Do you really want to delete this log?' } %>
