@@ -1,0 +1,12 @@
+* {
+  font-family: 'Merriweather', serif;
+  font-weight: 300;
+  line-height: 2em;
+  background-color: white;
+  color: #47494d;
+  margin: 0em;
+}
+
+body {
+  margin: 0 1.5em 0 1.5em;
+}
